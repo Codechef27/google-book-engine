@@ -5,19 +5,19 @@
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NODE_ENV=production && npm run start:prod || npm run dev",
+    "start": "node server/server.js",
     "dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Codechef27/the-book-engine.git"
+    "url": "git+https://github.com/Codechef27/google-book-engine.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/Codechef27/the-book-engine#readme",
+  "homepage": "https://github.com/Codechef27/google-book-engine#readme",
   "devDependencies": {
     "concurrently": "^7.3.0"
   }
