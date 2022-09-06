@@ -8,6 +8,7 @@ import { removeBookId } from '../utils/localStorage';
 import { useQuery , useMutation } from '@apollo/client';
 import { QUERY_ME } from '../utils/queries';
 import { DELETE_BOOK } from '../utils/mutations';
+// import { saveBook } from '../utils/API';
 
 
 const SavedBooks = () => {
@@ -28,24 +29,25 @@ const SavedBooks = () => {
 
     try {
        await deleteBook({
-        variables: { bookId: bookId },
+        variables: { bookId },
         update: cache => {
           const data = cache.readQuery({ query: QUERY_ME });
           const userDataCache = data.me;
           const savedBooksCache = userDataCache.savedBooks;
-          const updatedBookCache = savedBooksCache.filter((savedBooks) => savedBooks.bookId !== bookId);
+          const updatedBookCache = savedBooksCache.filter(savedBooksCache.bookId);
           data.me.savedBooks = updatedBookCache;
-          cache.writeQuery({ query: QUERY_ME , data: {data: {...data.me.savedBooks}}})
+          cache.writeData({ query: QUERY_ME , data: {data: {...data.me.savedBooks}}})
         }
       });
 
       // const updatedUser = await response.json();
       // setUserData(updatedUser);
       // upon success, remove book's id from localStorage
-      removeBookId(bookId);
+      
     } catch (err) {
       console.error(err);
     }
+    removeBookId(bookId);
   };
 
   // if data isn't here yet, say so
