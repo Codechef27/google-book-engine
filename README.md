@@ -1,4 +1,57 @@
-## Crieria
+
+
+  # Google-Book-Engine
+
+  * ![License:](https://img.shields.io/badge/license-ISC-success)
+  
+  ## License 
+
+   * Licensed by [ISC License](https://choosealicense.com/licenses/isc/)
+
+  ## Link to Heroku 
+  -[Google-Book-Engine](https://google-book-engine.herokuapp.com/) 
+
+  ## Link to Code 
+  -[Git Repository](https://github.com/Codechef27/google-book-engine)
+
+  ## Table of Contents
+
+  - [Description](#description)
+  - [Installation](#install-instructions)
+  - [Languages](#languages-used)
+  - [Usage](#usage)
+  - [Contribution](#contributing)
+  - [Test](#test)
+  - [Questions](#questions)
+
+  ## Description
+
+  Allows a user to create a profile, Login and logout, search for books by title, author or genre and navigate to google books on a provided link.
+
+  ## Languages Used
+
+  1. CSS 
+  2. Javascript 
+  3. React
+  4. Apollo
+  5. Graphql
+  
+  ## Contributing
+
+  Bradley J Kennett
+
+  ## Questions
+
+  Contact Me!
+
+  * Github Account:  [Codechef27](https://github.com/Codechef27)
+  * Email Me:  bradleyjkennett@gmail.com
+
+  ##  Screenshot
+
+  ![image](./client/public/screenshot.png)
+
+  ## Crieria
 
 
 1. GIVEN a book search engine
