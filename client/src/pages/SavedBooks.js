@@ -18,14 +18,6 @@ const SavedBooks = () => {
   const [deleteBook] = useMutation(DELETE_BOOK)
   const userData = data?.me;
 
-  if(!userData?.username) {
-    return (
-      <h4>
-        You need to be logged in!
-      </h4>
-    );
-  }
-
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -41,7 +33,7 @@ const SavedBooks = () => {
           const data = cache.readQuery({ query: QUERY_ME });
           const userDataCache = data.me;
           const savedBooksCache = userDataCache.savedBooks;
-          const updatedBookCache = savedBooksCache.filter((book) => book.bookId !== bookId);
+          const updatedBookCache = savedBooksCache.filter((savedBooks) => savedBooks.bookId !== bookId);
           data.me.savedBooks = updatedBookCache;
           cache.writeQuery({ query: QUERY_ME , data: {data: {...data.me.savedBooks}}})
         }
@@ -82,6 +74,7 @@ const SavedBooks = () => {
                 <Card.Body>
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
+                  {book.link ? <Button  className='btn-block btn-info' href={book.link}>Google Books</Button> : null}
                   <Card.Text>{book.description}</Card.Text>
                   <Button className='btn-block btn-danger' onClick={() => handleDeleteBook(book.bookId)}>
                     Delete this Book!

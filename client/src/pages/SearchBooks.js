@@ -136,6 +136,9 @@ const SearchBooks = () => {
                 <Card.Body>
                   <Card.Title>{book.title}</Card.Title>
                   <p className='small'>Authors: {book.authors}</p>
+                  {Auth.loggedIn() && (
+                   <Button  className='btn-block btn-info' href={book.link}>Google Books</Button> 
+                  )}
                   <Card.Text>{book.description}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
@@ -146,6 +149,7 @@ const SearchBooks = () => {
                         ? 'This book has already been saved!'
                         : 'Save this Book!'}
                     </Button>
+                     
                   )}
                 </Card.Body>
               </Card>
